@@ -1,5 +1,8 @@
 ﻿Imports Oracle.DataAccess.Client
-Imports System
+Imports System.IO
+Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+Imports CrystalDecisions.CrystalReports.Engine
 Public Class mainform
     Public conn As New OracleConnection
     Public cmd As OracleCommand
@@ -11,7 +14,7 @@ Public Class mainform
     Public query As String
 
     Private Sub btnbakatsiswa_Click(sender As Object, e As EventArgs) Handles btnbakatsiswa.Click
-        frmArsipBakatSiswa.Show()
+        frmBakatSiswa.Show()
     End Sub
 
     Private Sub btnKelas_Click(sender As Object, e As EventArgs)
@@ -811,21 +814,12 @@ Public Class mainform
         Call cari()
     End Sub
 
-    Private Sub cbokelaskelas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbokelaskelas.SelectedIndexChanged
+    Private Sub cbokelaskelas_SelectedIndexChanged(sender As Object, e As EventArgs)
         Dim querykelas As String = cbokelaskelas.Text
         Dim queryta As String = cbota.Text
-        Dim cari As String
         cmd.Connection = conn
         conn.Open()
-        If cbokelaskelas.Text = "-" And cbota.Text = "-" Then
-            cari = "select * from kesiswaan.kelas"
-        ElseIf cbokelaskelas.Text = "-" Then
-            cari = "select * from kesiswaan.kelas where TA = '" + queryta + "'"
-        ElseIf cbota.Text = "-" Then
-            cari = "select * from kesiswaan.kelas where KELAS = '" + querykelas + "'"
-        Else
-            cari = "select * from kesiswaan.kelas where KELAS = '" + querykelas + "' and TA='" + queryta + "'"
-        End If
+        Dim cari As String = "select * from kesiswaan.kelas where KELAS = '" + querykelas + "' and TA='" + queryta + "'"
         cmd = New OracleCommand(cari, conn)
         cmd.CommandType = CommandType.Text
         Dim dr As OracleDataReader = cmd.ExecuteReader()
@@ -837,6 +831,7 @@ Public Class mainform
 
         datagridkelassiswa.DataSource = ds.Tables(0)
         conn.Close()
+
     End Sub
 
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -882,25 +877,20 @@ Public Class mainform
         caritinggisampai.Enabled = False
         chkumursampai.Enabled = False
 
-        Call load_cbota()
+        SaveFileDialog1.FileName = ""
+        SaveFileDialog1.Filter = "PDF (*.pdf)|*.pdf"
 
+        Dim view As New CrystalReport1
+        view.SetDatabaseLogon("kesiswaan", "kesiswaan")
+        CrystalReportViewer1.ReportSource = view
     End Sub
 
-    Private Sub cbota_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbota.SelectedIndexChanged
+    Private Sub cbotalama_SelectedIndexChanged(sender As Object, e As EventArgs)
         Dim querykelas As String = cbokelaskelas.Text
         Dim queryta As String = cbota.Text
-        Dim cari As String
         cmd.Connection = conn
         conn.Open()
-        If cbokelaskelas.Text = "-" And cbota.Text = "-" Then
-            cari = "select * from kesiswaan.kelas"
-        ElseIf cbokelaskelas.Text = "-" Then
-            cari = "select * from kesiswaan.kelas where TA = '" + queryta + "'"
-        ElseIf cbota.Text = "-" Then
-            cari = "select * from kesiswaan.kelas where KELAS = '" + querykelas + "'"
-        Else
-            cari = "select * from kesiswaan.kelas where KELAS = '" + querykelas + "' and TA='" + queryta + "'"
-        End If
+        Dim cari As String = "select * from kesiswaan.kelas where KELAS = '" + querykelas + "' and TA='" + queryta + "'"
         cmd = New OracleCommand(cari, conn)
         cmd.CommandType = CommandType.Text
         Dim dr As OracleDataReader = cmd.ExecuteReader()
@@ -914,17 +904,72 @@ Public Class mainform
         conn.Close()
     End Sub
 
-    Public Sub load_cbota()
-        Dim tahun As Integer = Date.Now.Year
-        Dim awal As Integer
-        Dim akhir = tahun + 5
-        Dim ta As String
-        cbota.Items.Add("-")
-        For awal = tahun - 5 To akhir
-            akhir = awal + 1
-            ta = awal.ToString + "/" + akhir.ToString
-            cbota.Items.Add(ta)
-        Next
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        frmnaikkelas.Show()
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub cbota_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbota.SelectedIndexChanged
+        Dim querykelas As String = cbokelaskelas.Text
+        Dim queryta As String = cbota.Text
+        Dim cari As String
+        cmd.Connection = conn
+        conn.Open()
+
+        If querykelas = "Semua" And queryta = "Semua" Then
+            cari = "select kelas.no_induk,siswa.nama_siswa, kelas.kelas,kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.no_induk = siswa.no_induk order by kelas asc"
+        ElseIf querykelas = "Semua" And queryta IsNot "Semua" Then
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.TA='" + queryta + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        ElseIf querykelas IsNot "Semua" And queryta = "Semua" Then
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.KELAS = '" + querykelas + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        Else
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.KELAS = '" + querykelas + "' and kelas.TA='" + queryta + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        End If
+
+        cmd = New OracleCommand(cari, conn)
+        cmd.CommandType = CommandType.Text
+        Dim dr As OracleDataReader = cmd.ExecuteReader()
+        dr.Read()
+        da = New OracleDataAdapter(cmd)
+        cb = New OracleCommandBuilder(da)
+        ds = New DataSet()
+        da.Fill(ds)
+
+        datagridkelassiswa.DataSource = ds.Tables(0)
+        conn.Close()
+    End Sub
+
+    Private Sub cbokelaskelas_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cbokelaskelas.SelectedIndexChanged
+        Dim querykelas As String = cbokelaskelas.Text
+        Dim queryta As String = cbota.Text
+        Dim cari As String
+        cmd.Connection = conn
+        conn.Open()
+
+        If querykelas = "Semua" And queryta = "Semua" Then
+            cari = "select kelas.no_induk,siswa.nama_siswa, kelas.kelas,kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.no_induk = siswa.no_induk order by kelas asc"
+        ElseIf querykelas = "Semua" And queryta IsNot "Semua" Then
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.TA='" + queryta + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        ElseIf querykelas IsNot "Semua" And queryta = "Semua" Then
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.KELAS = '" + querykelas + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        Else
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.KELAS = '" + querykelas + "' and kelas.TA='" + queryta + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        End If
+
+        cmd = New OracleCommand(cari, conn)
+        cmd.CommandType = CommandType.Text
+        Dim dr As OracleDataReader = cmd.ExecuteReader()
+        dr.Read()
+        da = New OracleDataAdapter(cmd)
+        cb = New OracleCommandBuilder(da)
+        ds = New DataSet()
+        da.Fill(ds)
+
+        datagridkelassiswa.DataSource = ds.Tables(0)
+        conn.Close()
     End Sub
 
     Public Sub load_cbojurusan()
@@ -944,23 +989,104 @@ Public Class mainform
 
     End Sub
 
+    Private Sub btnbrowse_Click(sender As Object, e As EventArgs) Handles btnbrowse.Click
+        SaveFileDialog1.FileName = ""
+        If SaveFileDialog1.ShowDialog = DialogResult.OK Then
+            txtlocation.Text = SaveFileDialog1.FileName
+        End If
+    End Sub
+
+    Private Sub btnexport_Click(sender As Object, e As EventArgs) Handles btnexport.Click
+        Dim paragraph As New Paragraph
+        Dim PdfFile As New Document(PageSize.A4, 40, 40, 40, 20)
+        Dim write As PdfWriter = PdfWriter.GetInstance(PdfFile, New FileStream(txtlocation.Text, FileMode.Create))
+        PdfFile.Open()
+
+        Dim pTitle As New Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK)
+        Dim pTable As New Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK)
+
+        paragraph = New Paragraph(New Chunk("DAFTAR SISWA /n SMK TELKOM PURWOKERTO", pTitle))
+        paragraph.Alignment = Element.ALIGN_CENTER
+        paragraph.SpacingAfter = 2.0F
+        PdfFile.Add(paragraph)
+        paragraph = New Paragraph(New Chunk("KELAS " + cbokelaskelas.Text + " TAHUN AJARAN " + cbota.Text, pTitle))
+        paragraph.Alignment = Element.ALIGN_CENTER
+        paragraph.SpacingAfter = 5.0F
+        PdfFile.Add(paragraph)
+
+        Dim PdfTable As New PdfPTable(datagridkelassiswa.Columns.Count)
+
+        PdfTable.TotalWidth = 500.0F
+        PdfTable.LockedWidth = True
+
+        Dim widths(0 To datagridkelassiswa.Columns.Count - 1) As Single
+        For i As Integer = 0 To datagridkelassiswa.Columns.Count - 1
+            widths(i) = 1.0F
+        Next
+
+        PdfTable.SetWidths(widths)
+        PdfTable.HorizontalAlignment = 0
+        PdfTable.SpacingBefore = 5.0F
+
+        Dim pdfcell As PdfPCell = New PdfPCell
+
+
+        For i As Integer = 0 To datagridkelassiswa.Columns.Count - 1
+            pdfcell = New PdfPCell(New Phrase(New Chunk(datagridkelassiswa.Columns(i).HeaderText, pTable)))
+            pdfcell.HorizontalAlignment = PdfPCell.ALIGN_CENTER
+            PdfTable.AddCell(pdfcell)
+        Next
+
+        For i As Integer = 0 To datagridkelassiswa.Rows.Count - 2
+            For j As Integer = 0 To datagridkelassiswa.Columns.Count - 1
+                pdfcell = New PdfPCell(New Phrase(datagridkelassiswa.Item(j, i).Value.ToString(), pTable))
+                PdfTable.HorizontalAlignment = PdfPCell.ALIGN_LEFT
+                PdfTable.AddCell(pdfcell)
+            Next
+        Next
+
+        PdfFile.Add(PdfTable)
+        PdfFile.Close()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        CrystalReportViewer1.SelectionFormula = "{siswa.no_induk}='" & (txtno_induk.Text) & "'"
+        CrystalReportViewer1.RefreshReport()
+
+    End Sub
+
     Public Sub load_cbokelas()
         Dim i As Integer
         i = datagridkelas.RowCount
         Dim maxrow As Integer = i - 2
         Dim row As Integer
         Dim value As Object
+        cbokelaskelas.Items.Remove("Semua")
+        cbokelaskelas.Items.Add("Semua")
         For row = 0 To maxrow
             value = datagridkelas.Item(0, row).Value
             cbokelaskelas.Items.Remove(value)
         Next
-        cbokelaskelas.Items.Remove("-")
-        cbokelaskelas.Items.Add("-")
         For row = 0 To maxrow
             value = datagridkelas.Item(0, row).Value
             cbokelaskelas.Items.Add(value)
         Next
 
+        Dim tahun As Integer = Date.Now.Year
+        Dim awal As Integer
+        Dim akhir = tahun + 5
+        Dim ta As String
+        cbota.Items.Remove("Semua")
+        cbota.Items.Add("Semua")
+        For awal = tahun - 5 To akhir
+            akhir = awal + 1
+            ta = awal.ToString + "/" + akhir.ToString
+            cbota.Items.Remove(ta)
+            cbota.Items.Add(ta)
+        Next
+
+        cbokelaskelas.SelectedIndex = 0
+        cbota.SelectedIndex = 0
     End Sub
 
     Public Sub clean_kelasjurusan()
@@ -981,5 +1107,65 @@ Public Class mainform
 
     Private Sub mainform_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         frmLogin.Show()
+    End Sub
+
+    Private Sub cbokelaskelas_TextChanged(sender As Object, e As EventArgs) Handles cbokelaskelas.TextChanged
+        Dim querykelas As String = cbokelaskelas.Text
+        Dim queryta As String = cbota.Text
+        Dim cari As String
+        cmd.Connection = conn
+        conn.Open()
+
+        If querykelas = "Semua" And queryta = "Semua" Then
+            cari = "select kelas.no_induk,siswa.nama_siswa, kelas.kelas,kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.no_induk = siswa.no_induk order by kelas asc"
+        ElseIf querykelas = "Semua" And queryta IsNot "Semua" Then
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.TA='" + queryta + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        ElseIf querykelas IsNot "Semua" And queryta = "Semua" Then
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.KELAS = '" + querykelas + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        Else
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.KELAS = '" + querykelas + "' and kelas.TA='" + queryta + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        End If
+
+        cmd = New OracleCommand(cari, conn)
+        cmd.CommandType = CommandType.Text
+        Dim dr As OracleDataReader = cmd.ExecuteReader()
+        dr.Read()
+        da = New OracleDataAdapter(cmd)
+        cb = New OracleCommandBuilder(da)
+        ds = New DataSet()
+        da.Fill(ds)
+
+        datagridkelassiswa.DataSource = ds.Tables(0)
+        conn.Close()
+    End Sub
+
+    Private Sub cbota_TextChanged(sender As Object, e As EventArgs) Handles cbota.TextChanged
+        Dim querykelas As String = cbokelaskelas.Text
+        Dim queryta As String = cbota.Text
+        Dim cari As String
+        cmd.Connection = conn
+        conn.Open()
+
+        If querykelas = "Semua" And queryta = "Semua" Then
+            cari = "select kelas.no_induk,siswa.nama_siswa, kelas.kelas,kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.no_induk = siswa.no_induk order by kelas asc"
+        ElseIf querykelas = "Semua" And queryta IsNot "Semua" Then
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.TA='" + queryta + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        ElseIf querykelas IsNot "Semua" And queryta = "Semua" Then
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.KELAS = '" + querykelas + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        Else
+            cari = "select kelas.no_induk, siswa.nama_siswa, kelas.kelas, kelas.ta from kesiswaan.kelas,kesiswaan.siswa where kelas.KELAS = '" + querykelas + "' and kelas.TA='" + queryta + "' and kelas.no_induk = siswa.no_induk order by kelas.no_induk asc"
+        End If
+
+        cmd = New OracleCommand(cari, conn)
+        cmd.CommandType = CommandType.Text
+        Dim dr As OracleDataReader = cmd.ExecuteReader()
+        dr.Read()
+        da = New OracleDataAdapter(cmd)
+        cb = New OracleCommandBuilder(da)
+        ds = New DataSet()
+        da.Fill(ds)
+
+        datagridkelassiswa.DataSource = ds.Tables(0)
+        conn.Close()
     End Sub
 End Class

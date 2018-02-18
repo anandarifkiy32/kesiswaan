@@ -7,7 +7,7 @@ Public Class frmArsipDataAyah
     Public cb As OracleCommandBuilder
     Public ds As DataSet
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btninpsiswa.Click
         If txtnoinduk.Text = "" Then
             MsgBox("No Induk Tidak boleh kosong", vbOKOnly + vbInformation, "Perhatian")
             txtnoinduk.Select()
@@ -47,22 +47,38 @@ Public Class frmArsipDataAyah
                 MsgBox("Data Berhasil di Perbarui", vbOK, "Perhatian")
             End If
         End If
+        conn.Close()
         Call clear()
     End Sub
 
     Public Sub clear()
         txtnoinduk.Text = ""
         txtpdayah.Text = ""
+        txtpdayah.Enabled = False
         txtalamatkantor.Text = ""
+        txtalamatkantor.Enabled = False
         dtptglhrayah.Value = Date.Now
+        dtptglhrayah.Enabled = False
         txtalamatrumah.Text = ""
+        txtalamatrumah.Enabled = False
         txtnamaayah.Text = ""
+        txtnamaayah.Enabled = False
         txtwn.Text = ""
+        txtwn.Enabled = False
         txttempatlahir.Text = ""
+        txttempatlahir.Enabled = False
         txttelprumah.Text = ""
+        txttelprumah.Enabled = False
         txttelpkantor.Text = ""
+        txttelpkantor.Enabled = False
         txtpenghasilan.Text = ""
+        txtpenghasilan.Enabled = False
         txtpekerjaan.Text = ""
+        txtpekerjaan.Enabled = False
+        cboagamaayah.Enabled = False
+        btninpsiswa.Enabled = False
+        txtnoinduk.Enabled = True
+        txtnoinduk.Focus()
     End Sub
 
     Public Sub tampildatasiswa()
@@ -96,6 +112,7 @@ Public Class frmArsipDataAyah
 
     Private Sub frmArsipDataAyah_Load(sender As Object, e As EventArgs) Handles Me.Load
         Call koneksi()
+        Call clear()
     End Sub
 
     Private Sub txtpenghasilan_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpenghasilan.KeyPress
@@ -104,13 +121,131 @@ Public Class frmArsipDataAyah
         End If
     End Sub
 
-    Private Sub Label13_Click(sender As Object, e As EventArgs) Handles Label13.Click
-
-    End Sub
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Close()
     End Sub
 
+    Private Sub txtnoinduk_TextChanged(sender As Object, e As EventArgs) Handles txtnoinduk.TextChanged
 
+    End Sub
+
+    Private Sub txtnoinduk_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnoinduk.KeyPress
+        If e.KeyChar = Convert.ToChar(13) Then
+            Dim query As String = "select * from kesiswaan.siswa where no_induk = '" + txtnoinduk.Text + "'"
+
+            conn.Open()
+
+            cmd = New OracleCommand(query, conn)
+
+            Dim dr As OracleDataReader = cmd.ExecuteReader()
+            dr.Read()
+
+            da = New OracleDataAdapter(cmd)
+            cb = New OracleCommandBuilder(da)
+            ds = New DataSet()
+            da.Fill(ds)
+
+            mainform.DataGridSiswa.DataSource = ds.Tables(0)
+
+            If mainform.DataGridSiswa.RowCount = 1 Then
+                Call Input()
+            Else
+                Call Input()
+
+                If IsDBNull(dr.Item(29)) Then
+                    txtnamaayah.Text = ""
+                Else
+                    txtnamaayah.Text = dr.Item(29)
+                End If
+
+                If IsDBNull(dr.Item(30)) Then
+                    txttempatlahir.Text = ""
+                Else
+                    txttempatlahir.Text = dr.Item(30)
+                End If
+
+                If IsDBNull(dr.Item(31)) Then
+                    dtptglhrayah.Value = Date.Now
+                Else
+                    dtptglhrayah.Value = dr.Item(31)
+                End If
+
+                If IsDBNull(dr.Item(32)) Then
+                    cboagamaayah.Text = ""
+                Else
+                    cboagamaayah.Text = dr.Item(32)
+                End If
+
+                If IsDBNull(dr.Item(33)) Then
+                    txtwn.Text = ""
+                Else
+                    txtwn.Text = dr.Item(33)
+                End If
+
+                If IsDBNull(dr.Item(34)) Then
+                    txtpdayah.Text = ""
+                Else
+                    txtpdayah.Text = dr.Item(34)
+                End If
+
+                If IsDBNull(dr.Item(35)) Then
+                    txtpekerjaan.Text = ""
+                Else
+                    txtpekerjaan.Text = dr.Item(35)
+                End If
+
+                If IsDBNull(dr.Item(36)) Then
+                    txtpenghasilan.Text = ""
+                Else
+                    txtpenghasilan.Text = dr.Item(36)
+                End If
+
+                If IsDBNull(dr.Item(37)) Then
+                    txtalamatrumah.Text = ""
+                Else
+                    txtalamatrumah.Text = dr.Item(37)
+                End If
+
+                If IsDBNull(dr.Item(38)) Then
+                    txttelprumah.Text = ""
+                Else
+                    txttelprumah.Text = dr.Item(38)
+                End If
+
+                If IsDBNull(dr.Item(39)) Then
+                    txtalamatkantor.Text = ""
+                Else
+                    txtalamatkantor.Text = dr.Item(39)
+                End If
+
+                If IsDBNull(dr.Item(40)) Then
+                    txttelpkantor.Text = ""
+                Else
+                    txttelpkantor.Text = dr.Item(40)
+                End If
+            End If
+            conn.Close()
+        End If
+    End Sub
+
+    Private Sub input()
+        txtalamatkantor.Enabled = True
+        txtalamatrumah.Enabled = True
+        txtnamaayah.Enabled = True
+        txtpdayah.Enabled = True
+        txtpekerjaan.Enabled = True
+        txtpenghasilan.Enabled = True
+        txttelpkantor.Enabled = True
+        txttelprumah.Enabled = True
+        txttempatlahir.Enabled = True
+        txtwn.Enabled = True
+        cboagamaayah.Enabled = True
+        dtptglhrayah.Enabled = True
+        btninpsiswa.Enabled = True
+        txtnoinduk.Enabled = False
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btncancel.Click
+        Call clear()
+    End Sub
 End Class

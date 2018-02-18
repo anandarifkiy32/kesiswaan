@@ -31,6 +31,8 @@ Partial Class frmKelas
         Me.txttakelas = New System.Windows.Forms.TextBox()
         Me.txtdeskelas = New System.Windows.Forms.TextBox()
         Me.btninputkelas = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -114,11 +116,35 @@ Partial Class frmKelas
         Me.btninputkelas.Text = "input"
         Me.btninputkelas.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.DarkRed
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.ForeColor = System.Drawing.Color.Transparent
+        Me.Button2.Location = New System.Drawing.Point(376, 12)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(30, 23)
+        Me.Button2.TabIndex = 86
+        Me.Button2.Text = "X"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(140, 36)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(130, 23)
+        Me.Label5.TabIndex = 87
+        Me.Label5.Text = "BAKAT SISWA"
+        '
         'frmKelas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(418, 402)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btninputkelas)
         Me.Controls.Add(Me.txtdeskelas)
         Me.Controls.Add(Me.txttakelas)
@@ -128,6 +154,8 @@ Partial Class frmKelas
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label3)
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmKelas"
         Me.Text = "frmKelas"
         Me.ResumeLayout(False)
@@ -144,4 +172,6 @@ Partial Class frmKelas
     Friend WithEvents txttakelas As TextBox
     Friend WithEvents txtdeskelas As TextBox
     Friend WithEvents btninputkelas As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Label5 As Label
 End Class

@@ -68,6 +68,10 @@ Public Class frmKelas
         End Try
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Close()
+    End Sub
+
     Private Sub frmKelas_Load(sender As Object, e As EventArgs) Handles Me.Load
         Call koneksi()
         Call tampildatakelas()

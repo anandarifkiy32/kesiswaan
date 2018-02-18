@@ -31,21 +31,18 @@ Public Class frmArsipTempatSiswa
             cmd.ExecuteNonQuery()
             Call tampildatasiswa()
             mainform.DataGridSiswa.DataSource = ds.Tables(0)
-            conn.Close()
             MsgBox("Data Berhasil Disimpan", vbOK + vbInformation, "Perhatian")
         Else
-            If MsgBox("Nomor Induk Sudah Ada, Perbarui Data?", vbYesNo + vbInformation, " Perhatian") = vbYes Then
-                cmd = New OracleCommand("Update kesiswaan.siswa set ALAMAT_RUMAH_SISWA='" + txtalamatrumah.Text + "', TELP_SISWA='" +
+            cmd = New OracleCommand("Update kesiswaan.siswa set ALAMAT_RUMAH_SISWA='" + txtalamatrumah.Text + "', TELP_SISWA='" +
                                     txttelpsiswa.Text + "', ALAMAT_KOST_SISWA='" + txtalamatkos.Text + "', BAPAK_KOST_SISWA='" + txtbapakkos.Text + "',
                                     TELP_KOST_SISWA='" + txttelpkos.Text + "', JARAK_SISWA='" + txtjaraksiswa.Text + "' where NO_INDUK='" + txtnoinduk.Text + "'", conn)
                 cmd.ExecuteNonQuery()
                 Call tampildatasiswa()
                 mainform.DataGridSiswa.DataSource = ds.Tables(0)
-                conn.Close()
-                MsgBox("Data Berhasil di Perbarui", vbOK, "Perhatian")
-            End If
+            MsgBox("Data Berhasil di Perbarui", vbOK, "Perhatian")
         End If
         Call clear()
+        conn.Close()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -65,6 +62,10 @@ Public Class frmArsipTempatSiswa
         da.Fill(ds)
     End Sub
 
+    Private Sub txtnoinduk_TextChanged(sender As Object, e As EventArgs) Handles txtnoinduk.TextChanged
+
+    End Sub
+
     Public Sub clear()
         txtnoinduk.Text = ""
         txttelpsiswa.Text = ""
@@ -79,10 +80,9 @@ Public Class frmArsipTempatSiswa
         txtbapakkos.Enabled = False
         txtjaraksiswa.Text = ""
         txtjaraksiswa.Enabled = False
-    End Sub
-
-    Private Sub txtnoinduk_TextChanged(sender As Object, e As EventArgs) Handles txtnoinduk.TextChanged
-
+        btninput.Enabled = False
+        txtnoinduk.Enabled = True
+        txtnoinduk.Focus()
     End Sub
 
     Public Sub koneksi()
@@ -103,8 +103,85 @@ Public Class frmArsipTempatSiswa
         End Try
     End Sub
 
+    Private Sub btncancel_Click(sender As Object, e As EventArgs) Handles btncancel.Click
+        Call clear()
+    End Sub
+
     Private Sub frmArsipTempatSiswa_Load(sender As Object, e As EventArgs) Handles Me.Load
         Call koneksi()
         Call clear()
+    End Sub
+    Private Sub input()
+        txtjaraksiswa.Enabled = True
+        txtbapakkos.Enabled = True
+        txtalamatrumah.Enabled = True
+        txtalamatkos.Enabled = True
+        txttelpkos.Enabled = True
+        txttelpsiswa.Enabled = True
+        txtnoinduk.Enabled = False
+        btninput.Enabled = True
+    End Sub
+
+    Private Sub txtnoinduk_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnoinduk.KeyPress
+        If e.KeyChar = Convert.ToChar(13) Then
+            Dim query As String = "select * from kesiswaan.siswa where no_induk = '" + txtnoinduk.Text + "'"
+
+            conn.Open()
+
+            cmd = New OracleCommand(query, conn)
+
+            Dim dr As OracleDataReader = cmd.ExecuteReader()
+            dr.Read()
+
+            da = New OracleDataAdapter(cmd)
+            cb = New OracleCommandBuilder(da)
+            ds = New DataSet()
+            da.Fill(ds)
+
+            mainform.DataGridSiswa.DataSource = ds.Tables(0)
+
+            If mainform.DataGridSiswa.RowCount = 1 Then
+                Call input()
+            Else
+                Call input()
+
+                If IsDBNull(dr.Item(15)) Then
+                    txtalamatrumah.Text = ""
+                Else
+                    txtalamatrumah.Text = dr.Item(15)
+                End If
+
+                If IsDBNull(dr.Item(16)) Then
+                    txttelpsiswa.Text = ""
+                Else
+                    txttelpsiswa.Text = dr.Item(16)
+                End If
+
+                If IsDBNull(dr.Item(17)) Then
+                    txtalamatkos.Text = ""
+                Else
+                    txtalamatkos.Text = dr.Item(17)
+                End If
+
+                If IsDBNull(dr.Item(18)) Then
+                    txtbapakkos.Text = ""
+                Else
+                    txtbapakkos.Text = dr.Item(18)
+                End If
+
+                If IsDBNull(dr.Item(19)) Then
+                    txttelpkos.Text = ""
+                Else
+                    txttelpkos.Text = dr.Item(19)
+                End If
+
+                If IsDBNull(dr.Item(20)) Then
+                    txtjaraksiswa.Text = ""
+                Else
+                    txtjaraksiswa.Text = dr.Item(20)
+                End If
+            End If
+            conn.Close()
+        End If
     End Sub
 End Class

@@ -420,6 +420,7 @@ Partial Class frmArsipDataSiswa
         '
         'txtpenyakit
         '
+        Me.txtpenyakit.Font = New System.Drawing.Font("Century Gothic", 9.0!)
         Me.txtpenyakit.Location = New System.Drawing.Point(211, 584)
         Me.txtpenyakit.Multiline = True
         Me.txtpenyakit.Name = "txtpenyakit"

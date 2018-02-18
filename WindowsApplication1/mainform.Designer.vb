@@ -68,27 +68,43 @@ Partial Class mainform
         Me.btntempatsiswa = New System.Windows.Forms.Button()
         Me.btnarsipsiswa = New System.Windows.Forms.Button()
         Me.DataGridSiswa = New System.Windows.Forms.DataGridView()
+        Me.Panel5 = New System.Windows.Forms.Panel()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.cbota = New System.Windows.Forms.ComboBox()
-        Me.datagridkelassiswa = New System.Windows.Forms.DataGridView()
-        Me.cbokelaskelas = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Splitter1 = New System.Windows.Forms.Splitter()
+        Me.datagridkelas = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.datagridjurusan = New System.Windows.Forms.DataGridView()
-        Me.btninputjurusan = New System.Windows.Forms.Button()
-        Me.txtprogkeahlian = New System.Windows.Forms.TextBox()
-        Me.txtnamaprogram = New System.Windows.Forms.TextBox()
-        Me.txtkodeprogram = New System.Windows.Forms.TextBox()
-        Me.datagridkelas = New System.Windows.Forms.DataGridView()
         Me.btninputkelas = New System.Windows.Forms.Button()
         Me.cbokodeprogram = New System.Windows.Forms.ComboBox()
         Me.txtkelas = New System.Windows.Forms.TextBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.datagridjurusan = New System.Windows.Forms.DataGridView()
+        Me.txtkodeprogram = New System.Windows.Forms.TextBox()
+        Me.btninputjurusan = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtprogkeahlian = New System.Windows.Forms.TextBox()
+        Me.txtnamaprogram = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.datagridkelassiswa = New System.Windows.Forms.DataGridView()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnbrowse = New System.Windows.Forms.Button()
+        Me.btnexport = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.cbota = New System.Windows.Forms.ComboBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cbokelaskelas = New System.Windows.Forms.ComboBox()
+        Me.txtlocation = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.txtno_induk = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.btndeleteuser = New System.Windows.Forms.Button()
         Me.btncanceluser = New System.Windows.Forms.Button()
@@ -105,20 +121,28 @@ Partial Class mainform
         Me.Label17 = New System.Windows.Forms.Label()
         Me.kesiswaan = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.DataSet1 = New System.Data.DataSet()
+        Me.CrystalReport11 = New WindowsApplication1.CrystalReport1()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.datagridcari, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         CType(Me.DataGridSiswa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
-        CType(Me.datagridkelassiswa, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.datagridjurusan, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         CType(Me.datagridkelas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        CType(Me.datagridjurusan, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.datagridkelassiswa, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         CType(Me.datagriduser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -507,6 +531,7 @@ Partial Class mainform
         Me.TabPage2.Controls.Add(Me.btntempatsiswa)
         Me.TabPage2.Controls.Add(Me.btnarsipsiswa)
         Me.TabPage2.Controls.Add(Me.DataGridSiswa)
+        Me.TabPage2.Controls.Add(Me.Panel5)
         Me.TabPage2.Location = New System.Drawing.Point(4, 34)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -594,104 +619,75 @@ Partial Class mainform
         Me.DataGridSiswa.Size = New System.Drawing.Size(651, 540)
         Me.DataGridSiswa.TabIndex = 0
         '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel5.Location = New System.Drawing.Point(7, 9)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(666, 531)
+        Me.Panel5.TabIndex = 75
+        '
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.LightGray
-        Me.TabPage3.Controls.Add(Me.cbota)
-        Me.TabPage3.Controls.Add(Me.datagridkelassiswa)
-        Me.TabPage3.Controls.Add(Me.cbokelaskelas)
-        Me.TabPage3.Controls.Add(Me.Label8)
-        Me.TabPage3.Controls.Add(Me.Label5)
-        Me.TabPage3.Controls.Add(Me.Label4)
-        Me.TabPage3.Controls.Add(Me.Label2)
-        Me.TabPage3.Controls.Add(Me.Label1)
-        Me.TabPage3.Controls.Add(Me.Label3)
-        Me.TabPage3.Controls.Add(Me.datagridjurusan)
-        Me.TabPage3.Controls.Add(Me.btninputjurusan)
-        Me.TabPage3.Controls.Add(Me.txtprogkeahlian)
-        Me.TabPage3.Controls.Add(Me.txtnamaprogram)
-        Me.TabPage3.Controls.Add(Me.txtkodeprogram)
-        Me.TabPage3.Controls.Add(Me.datagridkelas)
-        Me.TabPage3.Controls.Add(Me.btninputkelas)
-        Me.TabPage3.Controls.Add(Me.cbokodeprogram)
-        Me.TabPage3.Controls.Add(Me.txtkelas)
         Me.TabPage3.Controls.Add(Me.Panel2)
+        Me.TabPage3.Controls.Add(Me.Panel3)
+        Me.TabPage3.Controls.Add(Me.datagridkelassiswa)
+        Me.TabPage3.Controls.Add(Me.Panel4)
         Me.TabPage3.Location = New System.Drawing.Point(4, 34)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Size = New System.Drawing.Size(1333, 546)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Kelas"
         '
-        'cbota
+        'Panel2
         '
-        Me.cbota.FormattingEnabled = True
-        Me.cbota.Location = New System.Drawing.Point(329, 280)
-        Me.cbota.Name = "cbota"
-        Me.cbota.Size = New System.Drawing.Size(92, 25)
-        Me.cbota.TabIndex = 30
+        Me.Panel2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.Splitter1)
+        Me.Panel2.Controls.Add(Me.datagridkelas)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Controls.Add(Me.btninputkelas)
+        Me.Panel2.Controls.Add(Me.cbokodeprogram)
+        Me.Panel2.Controls.Add(Me.txtkelas)
+        Me.Panel2.Location = New System.Drawing.Point(7, 9)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(669, 246)
+        Me.Panel2.TabIndex = 14
         '
-        'datagridkelassiswa
+        'Label6
         '
-        Me.datagridkelassiswa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.datagridkelassiswa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.datagridkelassiswa.Location = New System.Drawing.Point(76, 311)
-        Me.datagridkelassiswa.Name = "datagridkelassiswa"
-        Me.datagridkelassiswa.Size = New System.Drawing.Size(417, 150)
-        Me.datagridkelassiswa.TabIndex = 29
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(251, 26)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(150, 28)
+        Me.Label6.TabIndex = 37
+        Me.Label6.Text = "DATA KELAS"
         '
-        'cbokelaskelas
+        'Splitter1
         '
-        Me.cbokelaskelas.FormattingEnabled = True
-        Me.cbokelaskelas.Location = New System.Drawing.Point(155, 280)
-        Me.cbokelaskelas.Name = "cbokelaskelas"
-        Me.cbokelaskelas.Size = New System.Drawing.Size(92, 25)
-        Me.cbokelaskelas.TabIndex = 25
+        Me.Splitter1.Location = New System.Drawing.Point(0, 0)
+        Me.Splitter1.Name = "Splitter1"
+        Me.Splitter1.Size = New System.Drawing.Size(3, 246)
+        Me.Splitter1.TabIndex = 14
+        Me.Splitter1.TabStop = False
         '
-        'Label8
+        'datagridkelas
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label8.Location = New System.Drawing.Point(72, 280)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(47, 19)
-        Me.Label8.TabIndex = 21
-        Me.Label8.Text = "KELAS"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label5.Location = New System.Drawing.Point(615, 90)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(128, 19)
-        Me.Label5.TabIndex = 13
-        Me.Label5.Text = "BIDANG KEAHLIAN"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label4.Location = New System.Drawing.Point(615, 61)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(126, 19)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "NAMA PROGRAM"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label2.Location = New System.Drawing.Point(615, 32)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(123, 19)
-        Me.Label2.TabIndex = 11
-        Me.Label2.Text = "KODE PROGRAM"
+        Me.datagridkelas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.datagridkelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.datagridkelas.Location = New System.Drawing.Point(287, 68)
+        Me.datagridkelas.Name = "datagridkelas"
+        Me.datagridkelas.Size = New System.Drawing.Size(347, 161)
+        Me.datagridkelas.TabIndex = 3
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label1.Location = New System.Drawing.Point(20, 62)
+        Me.Label1.Location = New System.Drawing.Point(19, 98)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(123, 19)
         Me.Label1.TabIndex = 10
@@ -701,63 +697,15 @@ Partial Class mainform
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label3.Location = New System.Drawing.Point(20, 33)
+        Me.Label3.Location = New System.Drawing.Point(19, 69)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 19)
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "KELAS"
         '
-        'datagridjurusan
-        '
-        Me.datagridjurusan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.datagridjurusan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.datagridjurusan.Location = New System.Drawing.Point(883, 31)
-        Me.datagridjurusan.Name = "datagridjurusan"
-        Me.datagridjurusan.Size = New System.Drawing.Size(347, 150)
-        Me.datagridjurusan.TabIndex = 8
-        '
-        'btninputjurusan
-        '
-        Me.btninputjurusan.Location = New System.Drawing.Point(750, 118)
-        Me.btninputjurusan.Name = "btninputjurusan"
-        Me.btninputjurusan.Size = New System.Drawing.Size(75, 23)
-        Me.btninputjurusan.TabIndex = 7
-        Me.btninputjurusan.Text = "INPUT"
-        Me.btninputjurusan.UseVisualStyleBackColor = True
-        '
-        'txtprogkeahlian
-        '
-        Me.txtprogkeahlian.Location = New System.Drawing.Point(750, 89)
-        Me.txtprogkeahlian.Name = "txtprogkeahlian"
-        Me.txtprogkeahlian.Size = New System.Drawing.Size(100, 23)
-        Me.txtprogkeahlian.TabIndex = 6
-        '
-        'txtnamaprogram
-        '
-        Me.txtnamaprogram.Location = New System.Drawing.Point(750, 60)
-        Me.txtnamaprogram.Name = "txtnamaprogram"
-        Me.txtnamaprogram.Size = New System.Drawing.Size(100, 23)
-        Me.txtnamaprogram.TabIndex = 5
-        '
-        'txtkodeprogram
-        '
-        Me.txtkodeprogram.Location = New System.Drawing.Point(750, 31)
-        Me.txtkodeprogram.Name = "txtkodeprogram"
-        Me.txtkodeprogram.Size = New System.Drawing.Size(100, 23)
-        Me.txtkodeprogram.TabIndex = 4
-        '
-        'datagridkelas
-        '
-        Me.datagridkelas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.datagridkelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.datagridkelas.Location = New System.Drawing.Point(311, 32)
-        Me.datagridkelas.Name = "datagridkelas"
-        Me.datagridkelas.Size = New System.Drawing.Size(235, 150)
-        Me.datagridkelas.TabIndex = 3
-        '
         'btninputkelas
         '
-        Me.btninputkelas.Location = New System.Drawing.Point(155, 92)
+        Me.btninputkelas.Location = New System.Drawing.Point(154, 128)
         Me.btninputkelas.Name = "btninputkelas"
         Me.btninputkelas.Size = New System.Drawing.Size(75, 23)
         Me.btninputkelas.TabIndex = 2
@@ -767,34 +715,273 @@ Partial Class mainform
         'cbokodeprogram
         '
         Me.cbokodeprogram.FormattingEnabled = True
-        Me.cbokodeprogram.Location = New System.Drawing.Point(155, 61)
+        Me.cbokodeprogram.Location = New System.Drawing.Point(154, 97)
         Me.cbokodeprogram.Name = "cbokodeprogram"
-        Me.cbokodeprogram.Size = New System.Drawing.Size(121, 25)
+        Me.cbokodeprogram.Size = New System.Drawing.Size(106, 25)
         Me.cbokodeprogram.TabIndex = 1
         '
         'txtkelas
         '
-        Me.txtkelas.Location = New System.Drawing.Point(155, 32)
+        Me.txtkelas.Location = New System.Drawing.Point(154, 68)
         Me.txtkelas.Name = "txtkelas"
-        Me.txtkelas.Size = New System.Drawing.Size(100, 23)
+        Me.txtkelas.Size = New System.Drawing.Size(106, 23)
         Me.txtkelas.TabIndex = 0
         '
-        'Panel2
+        'Panel3
         '
-        Me.Panel2.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Panel2.Location = New System.Drawing.Point(7, 9)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1319, 215)
-        Me.Panel2.TabIndex = 14
+        Me.Panel3.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel3.Controls.Add(Me.Label7)
+        Me.Panel3.Controls.Add(Me.datagridjurusan)
+        Me.Panel3.Controls.Add(Me.txtkodeprogram)
+        Me.Panel3.Controls.Add(Me.btninputjurusan)
+        Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.txtprogkeahlian)
+        Me.Panel3.Controls.Add(Me.txtnamaprogram)
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Controls.Add(Me.Label4)
+        Me.Panel3.Location = New System.Drawing.Point(7, 273)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(669, 260)
+        Me.Panel3.TabIndex = 38
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(241, 23)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(186, 28)
+        Me.Label7.TabIndex = 38
+        Me.Label7.Text = "DATA JURUSAN"
+        '
+        'datagridjurusan
+        '
+        Me.datagridjurusan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.datagridjurusan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.datagridjurusan.Location = New System.Drawing.Point(287, 67)
+        Me.datagridjurusan.Name = "datagridjurusan"
+        Me.datagridjurusan.Size = New System.Drawing.Size(347, 180)
+        Me.datagridjurusan.TabIndex = 8
+        '
+        'txtkodeprogram
+        '
+        Me.txtkodeprogram.Location = New System.Drawing.Point(154, 67)
+        Me.txtkodeprogram.Name = "txtkodeprogram"
+        Me.txtkodeprogram.Size = New System.Drawing.Size(106, 23)
+        Me.txtkodeprogram.TabIndex = 4
+        '
+        'btninputjurusan
+        '
+        Me.btninputjurusan.Location = New System.Drawing.Point(154, 154)
+        Me.btninputjurusan.Name = "btninputjurusan"
+        Me.btninputjurusan.Size = New System.Drawing.Size(75, 23)
+        Me.btninputjurusan.TabIndex = 7
+        Me.btninputjurusan.Text = "INPUT"
+        Me.btninputjurusan.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 10.5!)
+        Me.Label5.Location = New System.Drawing.Point(19, 126)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(128, 19)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "BIDANG KEAHLIAN"
+        '
+        'txtprogkeahlian
+        '
+        Me.txtprogkeahlian.Location = New System.Drawing.Point(154, 125)
+        Me.txtprogkeahlian.Name = "txtprogkeahlian"
+        Me.txtprogkeahlian.Size = New System.Drawing.Size(100, 23)
+        Me.txtprogkeahlian.TabIndex = 6
+        '
+        'txtnamaprogram
+        '
+        Me.txtnamaprogram.Location = New System.Drawing.Point(154, 96)
+        Me.txtnamaprogram.Name = "txtnamaprogram"
+        Me.txtnamaprogram.Size = New System.Drawing.Size(106, 23)
+        Me.txtnamaprogram.TabIndex = 5
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 10.5!)
+        Me.Label2.Location = New System.Drawing.Point(19, 68)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(123, 19)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "KODE PROGRAM"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 10.5!)
+        Me.Label4.Location = New System.Drawing.Point(19, 97)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(126, 19)
+        Me.Label4.TabIndex = 12
+        Me.Label4.Text = "NAMA PROGRAM"
+        '
+        'datagridkelassiswa
+        '
+        Me.datagridkelassiswa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.datagridkelassiswa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.datagridkelassiswa.Location = New System.Drawing.Point(722, 165)
+        Me.datagridkelassiswa.Name = "datagridkelassiswa"
+        Me.datagridkelassiswa.Size = New System.Drawing.Size(588, 355)
+        Me.datagridkelassiswa.TabIndex = 34
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel4.Controls.Add(Me.Button1)
+        Me.Panel4.Controls.Add(Me.btnbrowse)
+        Me.Panel4.Controls.Add(Me.btnexport)
+        Me.Panel4.Controls.Add(Me.Label13)
+        Me.Panel4.Controls.Add(Me.Label9)
+        Me.Panel4.Controls.Add(Me.cbota)
+        Me.Panel4.Controls.Add(Me.Label14)
+        Me.Panel4.Controls.Add(Me.Label8)
+        Me.Panel4.Controls.Add(Me.cbokelaskelas)
+        Me.Panel4.Controls.Add(Me.txtlocation)
+        Me.Panel4.Location = New System.Drawing.Point(698, 9)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(628, 524)
+        Me.Panel4.TabIndex = 39
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(378, 125)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(224, 23)
+        Me.Button1.TabIndex = 36
+        Me.Button1.Text = "Naik Kelas"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnbrowse
+        '
+        Me.btnbrowse.Location = New System.Drawing.Point(378, 94)
+        Me.btnbrowse.Name = "btnbrowse"
+        Me.btnbrowse.Size = New System.Drawing.Size(68, 23)
+        Me.btnbrowse.TabIndex = 40
+        Me.btnbrowse.Text = "Buka"
+        Me.btnbrowse.UseVisualStyleBackColor = True
+        '
+        'btnexport
+        '
+        Me.btnexport.Location = New System.Drawing.Point(461, 94)
+        Me.btnexport.Name = "btnexport"
+        Me.btnexport.Size = New System.Drawing.Size(141, 23)
+        Me.btnexport.TabIndex = 40
+        Me.btnexport.Text = "Ekspor"
+        Me.btnexport.UseVisualStyleBackColor = True
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Label13.Font = New System.Drawing.Font("Century Gothic", 10.5!)
+        Me.Label13.Location = New System.Drawing.Point(227, 127)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(29, 19)
+        Me.Label13.TabIndex = 39
+        Me.Label13.Text = "T/A"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(218, 26)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(228, 28)
+        Me.Label9.TabIndex = 38
+        Me.Label9.Text = "DATA KELAS SISWA"
+        '
+        'cbota
+        '
+        Me.cbota.FormattingEnabled = True
+        Me.cbota.Location = New System.Drawing.Point(266, 125)
+        Me.cbota.Name = "cbota"
+        Me.cbota.Size = New System.Drawing.Size(92, 25)
+        Me.cbota.TabIndex = 35
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Label14.Font = New System.Drawing.Font("Century Gothic", 10.5!)
+        Me.Label14.Location = New System.Drawing.Point(37, 95)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(54, 19)
+        Me.Label14.TabIndex = 32
+        Me.Label14.Text = "LOKASI"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 10.5!)
+        Me.Label8.Location = New System.Drawing.Point(37, 129)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(47, 19)
+        Me.Label8.TabIndex = 32
+        Me.Label8.Text = "KELAS"
+        '
+        'cbokelaskelas
+        '
+        Me.cbokelaskelas.FormattingEnabled = True
+        Me.cbokelaskelas.Location = New System.Drawing.Point(103, 125)
+        Me.cbokelaskelas.Name = "cbokelaskelas"
+        Me.cbokelaskelas.Size = New System.Drawing.Size(92, 25)
+        Me.cbokelaskelas.TabIndex = 33
+        '
+        'txtlocation
+        '
+        Me.txtlocation.Location = New System.Drawing.Point(103, 94)
+        Me.txtlocation.Name = "txtlocation"
+        Me.txtlocation.Size = New System.Drawing.Size(255, 23)
+        Me.txtlocation.TabIndex = 0
         '
         'TabPage4
         '
         Me.TabPage4.BackColor = System.Drawing.Color.DimGray
+        Me.TabPage4.Controls.Add(Me.txtno_induk)
+        Me.TabPage4.Controls.Add(Me.Button2)
+        Me.TabPage4.Controls.Add(Me.CrystalReportViewer1)
         Me.TabPage4.Location = New System.Drawing.Point(4, 34)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Size = New System.Drawing.Size(1333, 546)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Mutasi"
+        '
+        'txtno_induk
+        '
+        Me.txtno_induk.Location = New System.Drawing.Point(35, 104)
+        Me.txtno_induk.Name = "txtno_induk"
+        Me.txtno_induk.Size = New System.Drawing.Size(100, 23)
+        Me.txtno_induk.TabIndex = 2
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(35, 133)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = 0
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.ReportSource = Me.CrystalReport11
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1333, 546)
+        Me.CrystalReportViewer1.TabIndex = 0
         '
         'TabPage5
         '
@@ -971,13 +1158,17 @@ Partial Class mainform
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "NewDataSet"
+        '
         'mainform
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.CausesValidation = False
-        Me.ClientSize = New System.Drawing.Size(1354, 681)
+        Me.ClientSize = New System.Drawing.Size(1354, 708)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.TabControl1)
         Me.HelpButton = True
@@ -992,10 +1183,17 @@ Partial Class mainform
         Me.TabPage2.ResumeLayout(False)
         CType(Me.DataGridSiswa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
-        CType(Me.datagridkelassiswa, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.datagridjurusan, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         CType(Me.datagridkelas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        CType(Me.datagridjurusan, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.datagridkelassiswa, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
         CType(Me.datagriduser, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1003,6 +1201,7 @@ Partial Class mainform
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1040,9 +1239,6 @@ Partial Class mainform
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents cbokelaskelas As ComboBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents datagridkelassiswa As DataGridView
     Friend WithEvents chkangkatan As CheckBox
     Friend WithEvents chkagama As CheckBox
     Friend WithEvents chktempatlahir As CheckBox
@@ -1088,5 +1284,27 @@ Partial Class mainform
     Friend WithEvents btndeleteuser As Button
     Friend WithEvents btncanceluser As Button
     Friend WithEvents btninpuser As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents datagridkelassiswa As DataGridView
     Friend WithEvents cbota As ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents cbokelaskelas As ComboBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Splitter1 As Splitter
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents btnexport As Button
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents btnbrowse As Button
+    Friend WithEvents txtlocation As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents DataSet1 As DataSet
+    Friend WithEvents Button2 As Button
+    Friend WithEvents txtno_induk As TextBox
+    Friend WithEvents CrystalReport11 As CrystalReport1
 End Class

@@ -186,6 +186,9 @@ Public Class frmArsipDataSiswa
         cbokelas.Text = ""
         cbokelas.Enabled = False
         btndelete.Enabled = False
+        btninpsiswa.Enabled = False
+        txtinpid.Enabled = True
+        txtinpid.Focus()
 
     End Sub
 
@@ -509,9 +512,8 @@ Public Class frmArsipDataSiswa
         cboagamasiswa.Text = ""
         cbokelas.Enabled = True
         cbokelas.Text = ""
-    End Sub
-
-    Private Sub txtinpid_SystemColorsChanged(sender As Object, e As EventArgs) Handles txtinpid.SystemColorsChanged
-
+        btninpsiswa.Enabled = True
+        btndelete.Enabled = True
+        txtinpid.Enabled = False
     End Sub
 End Class

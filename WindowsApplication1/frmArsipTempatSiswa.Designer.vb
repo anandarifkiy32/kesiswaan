@@ -39,6 +39,7 @@ Partial Class frmArsipTempatSiswa
         Me.txtalamatrumah = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btninput = New System.Windows.Forms.Button()
+        Me.btncancel = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -191,18 +192,33 @@ Partial Class frmArsipTempatSiswa
         Me.btninput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btninput.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btninput.ForeColor = System.Drawing.Color.White
-        Me.btninput.Location = New System.Drawing.Point(233, 412)
+        Me.btninput.Location = New System.Drawing.Point(233, 421)
         Me.btninput.Name = "btninput"
         Me.btninput.Size = New System.Drawing.Size(60, 23)
         Me.btninput.TabIndex = 88
         Me.btninput.Text = "INPUT"
         Me.btninput.UseVisualStyleBackColor = False
         '
+        'btncancel
+        '
+        Me.btncancel.BackColor = System.Drawing.Color.DimGray
+        Me.btncancel.FlatAppearance.BorderSize = 0
+        Me.btncancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btncancel.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncancel.ForeColor = System.Drawing.Color.White
+        Me.btncancel.Location = New System.Drawing.Point(299, 421)
+        Me.btncancel.Name = "btncancel"
+        Me.btncancel.Size = New System.Drawing.Size(70, 23)
+        Me.btncancel.TabIndex = 109
+        Me.btncancel.Text = "BATAL"
+        Me.btncancel.UseVisualStyleBackColor = False
+        '
         'frmArsipTempatSiswa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(503, 511)
+        Me.Controls.Add(Me.btncancel)
         Me.Controls.Add(Me.btninput)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label9)
@@ -248,4 +264,5 @@ Partial Class frmArsipTempatSiswa
     Friend WithEvents txtalamatrumah As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents btninput As Button
+    Friend WithEvents btncancel As Button
 End Class

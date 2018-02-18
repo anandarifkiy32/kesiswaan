@@ -50,31 +50,32 @@ Partial Class frmArsipDataAyah
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btncancel = New System.Windows.Forms.Button()
+        Me.btninpsiswa = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtnoinduk
         '
-        Me.txtnoinduk.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtnoinduk.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtnoinduk.Location = New System.Drawing.Point(270, 73)
         Me.txtnoinduk.Name = "txtnoinduk"
-        Me.txtnoinduk.Size = New System.Drawing.Size(100, 21)
+        Me.txtnoinduk.Size = New System.Drawing.Size(100, 22)
         Me.txtnoinduk.TabIndex = 0
         '
         'txtnamaayah
         '
-        Me.txtnamaayah.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtnamaayah.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtnamaayah.Location = New System.Drawing.Point(270, 99)
         Me.txtnamaayah.Name = "txtnamaayah"
-        Me.txtnamaayah.Size = New System.Drawing.Size(172, 21)
+        Me.txtnamaayah.Size = New System.Drawing.Size(172, 22)
         Me.txtnamaayah.TabIndex = 1
         '
         'txttempatlahir
         '
-        Me.txttempatlahir.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttempatlahir.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttempatlahir.Location = New System.Drawing.Point(270, 125)
         Me.txttempatlahir.Name = "txttempatlahir"
-        Me.txttempatlahir.Size = New System.Drawing.Size(100, 21)
+        Me.txttempatlahir.Size = New System.Drawing.Size(100, 22)
         Me.txttempatlahir.TabIndex = 3
         '
         'cboagamaayah
@@ -89,26 +90,26 @@ Partial Class frmArsipDataAyah
         '
         'txtpdayah
         '
-        Me.txtpdayah.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpdayah.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpdayah.Location = New System.Drawing.Point(270, 230)
         Me.txtpdayah.Name = "txtpdayah"
-        Me.txtpdayah.Size = New System.Drawing.Size(45, 21)
+        Me.txtpdayah.Size = New System.Drawing.Size(45, 22)
         Me.txtpdayah.TabIndex = 7
         '
         'txtpekerjaan
         '
-        Me.txtpekerjaan.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpekerjaan.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpekerjaan.Location = New System.Drawing.Point(270, 256)
         Me.txtpekerjaan.Name = "txtpekerjaan"
-        Me.txtpekerjaan.Size = New System.Drawing.Size(172, 21)
+        Me.txtpekerjaan.Size = New System.Drawing.Size(172, 22)
         Me.txtpekerjaan.TabIndex = 8
         '
         'txtpenghasilan
         '
-        Me.txtpenghasilan.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpenghasilan.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpenghasilan.Location = New System.Drawing.Point(270, 282)
         Me.txtpenghasilan.Name = "txtpenghasilan"
-        Me.txtpenghasilan.Size = New System.Drawing.Size(127, 21)
+        Me.txtpenghasilan.Size = New System.Drawing.Size(127, 22)
         Me.txtpenghasilan.TabIndex = 9
         '
         'Label1
@@ -203,10 +204,10 @@ Partial Class frmArsipDataAyah
         '
         'txtwn
         '
-        Me.txtwn.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtwn.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtwn.Location = New System.Drawing.Point(270, 205)
         Me.txtwn.Name = "txtwn"
-        Me.txtwn.Size = New System.Drawing.Size(45, 21)
+        Me.txtwn.Size = New System.Drawing.Size(45, 22)
         Me.txtwn.TabIndex = 21
         '
         'dtptglhrayah
@@ -216,10 +217,11 @@ Partial Class frmArsipDataAyah
         Me.dtptglhrayah.Name = "dtptglhrayah"
         Me.dtptglhrayah.Size = New System.Drawing.Size(172, 22)
         Me.dtptglhrayah.TabIndex = 22
+        Me.dtptglhrayah.Value = New Date(2018, 2, 14, 16, 55, 48, 0)
         '
         'txtalamatrumah
         '
-        Me.txtalamatrumah.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtalamatrumah.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtalamatrumah.Location = New System.Drawing.Point(270, 308)
         Me.txtalamatrumah.Multiline = True
         Me.txtalamatrumah.Name = "txtalamatrumah"
@@ -228,15 +230,15 @@ Partial Class frmArsipDataAyah
         '
         'txttelprumah
         '
-        Me.txttelprumah.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttelprumah.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttelprumah.Location = New System.Drawing.Point(270, 377)
         Me.txttelprumah.Name = "txttelprumah"
-        Me.txttelprumah.Size = New System.Drawing.Size(127, 21)
+        Me.txttelprumah.Size = New System.Drawing.Size(127, 22)
         Me.txttelprumah.TabIndex = 24
         '
         'txtalamatkantor
         '
-        Me.txtalamatkantor.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtalamatkantor.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtalamatkantor.Location = New System.Drawing.Point(270, 403)
         Me.txtalamatkantor.Multiline = True
         Me.txtalamatkantor.Name = "txtalamatkantor"
@@ -245,10 +247,10 @@ Partial Class frmArsipDataAyah
         '
         'txttelpkantor
         '
-        Me.txttelpkantor.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttelpkantor.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttelpkantor.Location = New System.Drawing.Point(270, 472)
         Me.txttelpkantor.Name = "txttelpkantor"
-        Me.txttelpkantor.Size = New System.Drawing.Size(127, 21)
+        Me.txttelpkantor.Size = New System.Drawing.Size(127, 22)
         Me.txttelpkantor.TabIndex = 26
         '
         'Label10
@@ -313,21 +315,41 @@ Partial Class frmArsipDataAyah
         Me.Button2.Text = "X"
         Me.Button2.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btncancel
         '
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(270, 498)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 24)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btncancel.BackColor = System.Drawing.Color.DimGray
+        Me.btncancel.FlatAppearance.BorderSize = 0
+        Me.btncancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btncancel.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncancel.ForeColor = System.Drawing.Color.White
+        Me.btncancel.Location = New System.Drawing.Point(336, 509)
+        Me.btncancel.Name = "btncancel"
+        Me.btncancel.Size = New System.Drawing.Size(70, 23)
+        Me.btncancel.TabIndex = 109
+        Me.btncancel.Text = "BATAL"
+        Me.btncancel.UseVisualStyleBackColor = False
+        '
+        'btninpsiswa
+        '
+        Me.btninpsiswa.BackColor = System.Drawing.Color.DimGray
+        Me.btninpsiswa.FlatAppearance.BorderSize = 0
+        Me.btninpsiswa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btninpsiswa.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btninpsiswa.ForeColor = System.Drawing.Color.White
+        Me.btninpsiswa.Location = New System.Drawing.Point(270, 509)
+        Me.btninpsiswa.Name = "btninpsiswa"
+        Me.btninpsiswa.Size = New System.Drawing.Size(60, 23)
+        Me.btninpsiswa.TabIndex = 108
+        Me.btninpsiswa.Text = "INPUT"
+        Me.btninpsiswa.UseVisualStyleBackColor = False
         '
         'frmArsipDataAyah
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(528, 541)
+        Me.ClientSize = New System.Drawing.Size(528, 573)
+        Me.Controls.Add(Me.btncancel)
+        Me.Controls.Add(Me.btninpsiswa)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
@@ -354,12 +376,14 @@ Partial Class frmArsipDataAyah
         Me.Controls.Add(Me.txtpdayah)
         Me.Controls.Add(Me.cboagamaayah)
         Me.Controls.Add(Me.txttempatlahir)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtnamaayah)
         Me.Controls.Add(Me.txtnoinduk)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Location = New System.Drawing.Point(130, 110)
         Me.Name = "frmArsipDataAyah"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "frmArsipKelasSiswa"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -393,5 +417,6 @@ Partial Class frmArsipDataAyah
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btncancel As Button
+    Friend WithEvents btninpsiswa As Button
 End Class

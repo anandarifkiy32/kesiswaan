@@ -46,12 +46,14 @@ Partial Class frmDataSmpSiswa
         Me.Label11 = New System.Windows.Forms.Label()
         Me.btninput = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.btncancel = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtnoinduk
         '
         Me.txtnoinduk.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txtnoinduk.Location = New System.Drawing.Point(232, 123)
+        Me.txtnoinduk.Location = New System.Drawing.Point(224, 78)
         Me.txtnoinduk.Name = "txtnoinduk"
         Me.txtnoinduk.Size = New System.Drawing.Size(113, 22)
         Me.txtnoinduk.TabIndex = 0
@@ -59,7 +61,7 @@ Partial Class frmDataSmpSiswa
         'txtnama
         '
         Me.txtnama.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txtnama.Location = New System.Drawing.Point(232, 149)
+        Me.txtnama.Location = New System.Drawing.Point(224, 104)
         Me.txtnama.Name = "txtnama"
         Me.txtnama.Size = New System.Drawing.Size(161, 22)
         Me.txtnama.TabIndex = 1
@@ -67,7 +69,7 @@ Partial Class frmDataSmpSiswa
         'txtalamat
         '
         Me.txtalamat.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txtalamat.Location = New System.Drawing.Point(232, 175)
+        Me.txtalamat.Location = New System.Drawing.Point(224, 130)
         Me.txtalamat.Multiline = True
         Me.txtalamat.Name = "txtalamat"
         Me.txtalamat.Size = New System.Drawing.Size(185, 62)
@@ -76,7 +78,7 @@ Partial Class frmDataSmpSiswa
         'txttelp
         '
         Me.txttelp.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txttelp.Location = New System.Drawing.Point(232, 243)
+        Me.txttelp.Location = New System.Drawing.Point(224, 198)
         Me.txttelp.Name = "txttelp"
         Me.txttelp.Size = New System.Drawing.Size(113, 22)
         Me.txttelp.TabIndex = 3
@@ -84,7 +86,7 @@ Partial Class frmDataSmpSiswa
         'txtfax
         '
         Me.txtfax.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txtfax.Location = New System.Drawing.Point(232, 269)
+        Me.txtfax.Location = New System.Drawing.Point(224, 224)
         Me.txtfax.Name = "txtfax"
         Me.txtfax.Size = New System.Drawing.Size(113, 22)
         Me.txtfax.TabIndex = 4
@@ -92,7 +94,7 @@ Partial Class frmDataSmpSiswa
         'txtnoijazah
         '
         Me.txtnoijazah.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txtnoijazah.Location = New System.Drawing.Point(232, 295)
+        Me.txtnoijazah.Location = New System.Drawing.Point(224, 250)
         Me.txtnoijazah.Name = "txtnoijazah"
         Me.txtnoijazah.Size = New System.Drawing.Size(161, 22)
         Me.txtnoijazah.TabIndex = 5
@@ -100,7 +102,7 @@ Partial Class frmDataSmpSiswa
         'txtnmat
         '
         Me.txtnmat.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txtnmat.Location = New System.Drawing.Point(232, 321)
+        Me.txtnmat.Location = New System.Drawing.Point(224, 276)
         Me.txtnmat.Name = "txtnmat"
         Me.txtnmat.Size = New System.Drawing.Size(36, 22)
         Me.txtnmat.TabIndex = 6
@@ -108,7 +110,7 @@ Partial Class frmDataSmpSiswa
         'txtnind
         '
         Me.txtnind.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txtnind.Location = New System.Drawing.Point(232, 347)
+        Me.txtnind.Location = New System.Drawing.Point(224, 302)
         Me.txtnind.Name = "txtnind"
         Me.txtnind.Size = New System.Drawing.Size(36, 22)
         Me.txtnind.TabIndex = 7
@@ -116,7 +118,7 @@ Partial Class frmDataSmpSiswa
         'txtningg
         '
         Me.txtningg.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txtningg.Location = New System.Drawing.Point(232, 373)
+        Me.txtningg.Location = New System.Drawing.Point(224, 328)
         Me.txtningg.Name = "txtningg"
         Me.txtningg.Size = New System.Drawing.Size(36, 22)
         Me.txtningg.TabIndex = 8
@@ -124,7 +126,7 @@ Partial Class frmDataSmpSiswa
         'txtket
         '
         Me.txtket.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txtket.Location = New System.Drawing.Point(232, 399)
+        Me.txtket.Location = New System.Drawing.Point(224, 354)
         Me.txtket.Name = "txtket"
         Me.txtket.Size = New System.Drawing.Size(151, 22)
         Me.txtket.TabIndex = 9
@@ -132,7 +134,7 @@ Partial Class frmDataSmpSiswa
         'txtprestasi
         '
         Me.txtprestasi.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.txtprestasi.Location = New System.Drawing.Point(232, 425)
+        Me.txtprestasi.Location = New System.Drawing.Point(224, 380)
         Me.txtprestasi.Multiline = True
         Me.txtprestasi.Name = "txtprestasi"
         Me.txtprestasi.Size = New System.Drawing.Size(185, 70)
@@ -142,7 +144,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label1.Location = New System.Drawing.Point(105, 124)
+        Me.Label1.Location = New System.Drawing.Point(97, 79)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(75, 19)
         Me.Label1.TabIndex = 11
@@ -152,7 +154,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label2.Location = New System.Drawing.Point(105, 150)
+        Me.Label2.Location = New System.Drawing.Point(97, 105)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 19)
         Me.Label2.TabIndex = 12
@@ -162,7 +164,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label3.Location = New System.Drawing.Point(105, 176)
+        Me.Label3.Location = New System.Drawing.Point(97, 131)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 19)
         Me.Label3.TabIndex = 13
@@ -172,7 +174,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label4.Location = New System.Drawing.Point(105, 296)
+        Me.Label4.Location = New System.Drawing.Point(97, 251)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 19)
         Me.Label4.TabIndex = 16
@@ -182,7 +184,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label5.Location = New System.Drawing.Point(105, 270)
+        Me.Label5.Location = New System.Drawing.Point(97, 225)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(69, 19)
         Me.Label5.TabIndex = 15
@@ -192,7 +194,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label6.Location = New System.Drawing.Point(105, 244)
+        Me.Label6.Location = New System.Drawing.Point(97, 199)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(72, 19)
         Me.Label6.TabIndex = 14
@@ -202,7 +204,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label7.Location = New System.Drawing.Point(105, 374)
+        Me.Label7.Location = New System.Drawing.Point(97, 329)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(56, 19)
         Me.Label7.TabIndex = 19
@@ -212,7 +214,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label8.Location = New System.Drawing.Point(105, 348)
+        Me.Label8.Location = New System.Drawing.Point(97, 303)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(42, 19)
         Me.Label8.TabIndex = 18
@@ -222,7 +224,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label9.Location = New System.Drawing.Point(105, 322)
+        Me.Label9.Location = New System.Drawing.Point(97, 277)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(46, 19)
         Me.Label9.TabIndex = 17
@@ -232,7 +234,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label10.Location = New System.Drawing.Point(105, 426)
+        Me.Label10.Location = New System.Drawing.Point(97, 381)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(65, 19)
         Me.Label10.TabIndex = 21
@@ -242,7 +244,7 @@ Partial Class frmDataSmpSiswa
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 10.5!)
-        Me.Label11.Location = New System.Drawing.Point(105, 400)
+        Me.Label11.Location = New System.Drawing.Point(97, 355)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(97, 19)
         Me.Label11.TabIndex = 20
@@ -255,7 +257,7 @@ Partial Class frmDataSmpSiswa
         Me.btninput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btninput.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btninput.ForeColor = System.Drawing.Color.White
-        Me.btninput.Location = New System.Drawing.Point(232, 501)
+        Me.btninput.Location = New System.Drawing.Point(224, 468)
         Me.btninput.Name = "btninput"
         Me.btninput.Size = New System.Drawing.Size(60, 23)
         Me.btninput.TabIndex = 88
@@ -267,18 +269,45 @@ Partial Class frmDataSmpSiswa
         Me.Button1.BackColor = System.Drawing.Color.DarkRed
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(486, 12)
+        Me.Button1.Location = New System.Drawing.Point(421, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(30, 23)
         Me.Button1.TabIndex = 89
         Me.Button1.Text = "X"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(182, 27)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(123, 25)
+        Me.Label12.TabIndex = 90
+        Me.Label12.Text = "SMP SISWA"
+        '
+        'btncancel
+        '
+        Me.btncancel.BackColor = System.Drawing.Color.DimGray
+        Me.btncancel.FlatAppearance.BorderSize = 0
+        Me.btncancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btncancel.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.btncancel.ForeColor = System.Drawing.Color.White
+        Me.btncancel.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.btncancel.Location = New System.Drawing.Point(290, 468)
+        Me.btncancel.Name = "btncancel"
+        Me.btncancel.Size = New System.Drawing.Size(70, 23)
+        Me.btncancel.TabIndex = 110
+        Me.btncancel.Text = "BATAL"
+        Me.btncancel.UseVisualStyleBackColor = False
+        '
         'frmDataSmpSiswa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(528, 546)
+        Me.ClientSize = New System.Drawing.Size(467, 546)
+        Me.Controls.Add(Me.btncancel)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btninput)
         Me.Controls.Add(Me.Label10)
@@ -304,8 +333,11 @@ Partial Class frmDataSmpSiswa
         Me.Controls.Add(Me.txtnama)
         Me.Controls.Add(Me.txtnoinduk)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Location = New System.Drawing.Point(150, 110)
         Me.Name = "frmDataSmpSiswa"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "frmDataSmpSiswa"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -335,4 +367,6 @@ Partial Class frmDataSmpSiswa
     Friend WithEvents Label11 As Label
     Friend WithEvents btninput As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label12 As Label
+    Friend WithEvents btncancel As Button
 End Class
